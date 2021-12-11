@@ -1,5 +1,5 @@
 import { FETCH_SUCCESS, START_FETCH, FETCH_FAIL, ADD_SMURF, ERR_GEN  } from "../actions";
-export const initialSt ate = {
+export const initialState = {
     smurfs: [],
     isLoading: false,
     errorM: ""
