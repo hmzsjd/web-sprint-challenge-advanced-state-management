@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {connect} from 'react-redux';
-import { addSmurf, errorGen } from '../actions';
+import { addSmurf, errorGen } from '../actions/index';
 
 
 const AddForm = (props) => {
@@ -23,13 +23,13 @@ const AddForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" ) {
-            errorGen("Name required")
+            props.errorGen("Name required")
         } else if (state.position === "") {
-            errorGen('Position required')
+            props.errorGen('Position required')
         } else if (state.nickname === "") {
-            errorGen('Nickname required')
+            props.errorGen('Nickname required')
         }else {
-            addSmurf(state)
+            props.addSmurf(state)
             setState({
                 name:"",
                 position:"",

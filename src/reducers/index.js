@@ -12,7 +12,7 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs: [],
                 isLoading: true,
-                error: ""
+                errorM: ""
             });
         }
         case(FETCH_SUCCESS): {
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs: action.payload,
                 isLoading: false,
-                error: ""
+                errorM: ""
             });
         }
         case(FETCH_FAIL): {
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs:[],
                 isLoading: false,
-                error: action.payload
+                errorM: action.payload
             });
         }
         case(ADD_SMURF): {
@@ -40,7 +40,7 @@ const reducer = (state = initialState, action)=>{
         case(ERR_GEN): {
             return ({
                 ...state,
-                error: action.payload
+                errorM: action.payload
             })
         }
   
