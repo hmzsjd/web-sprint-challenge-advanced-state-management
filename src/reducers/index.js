@@ -1,4 +1,4 @@
-
+import { FETCH_SUCCESS, START_FETCH, FETCH_FAIL, ADD_SMURF, ERR_GEN  } from "../actions";
 export const initialSt ate = {
     smurfs: [],
     isLoading: false,
@@ -8,19 +8,40 @@ export const initialSt ate = {
 const reducer = (state = initialState, action)=>{
     switch (action.type) {
         case(START_FETCH): {
-            return
+            return ({
+                ...state,
+                smurfs: [],
+                isLoading: true,
+                error: ""
+            });
         }
-        case(FETCH_SUCESS): {
-            return
+        case(FETCH_SUCCESS): {
+            return({
+                ...state,
+                smurfs: action.payload,
+                isLoading: false,
+                error: ""
+            });
         }
         case(FETCH_FAIL): {
-            return
+            return ({
+                ...state,
+                smurfs:[],
+                isLoading: false,
+                error: action.payload
+            });
         }
         case(ADD_SMURF): {
-            return
+            return ({
+                ...state,
+                smurfs:[...state.smurfs, action.payload],
+            });
         }
         case(ERR_GEN): {
-            return
+            return ({
+                ...state,
+                error: action.payload
+            })
         }
   
         default:
